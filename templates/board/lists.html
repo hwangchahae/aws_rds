@@ -1,18 +1,23 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href = "{% static 'css/style.css' %}">
+    <script src="{% static 'js/jquery-3.7.1.min.js' %}"></script>
     <title>board lists</title>
 </head>
 <body>
     <h1>board lists</h1>
-    <ul>
+    
         {% for post in posts %}
-        <li>
+        <div>
             <strong>{{post.title}}</strong><span>{{post.created_at}}</span>
-        </li>
+            <a href="{% url 'board_update' post.id %}" class="btn">수정</a>
+            <a href="{% url 'board_delete' post.id %}" class="btn">삭제</a>
+        </div>
         {% endfor %}
-    </ul>
+    
 </body>
 </html>
