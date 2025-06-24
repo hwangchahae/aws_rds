@@ -1,15 +1,8 @@
-{% load static %}
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href = "{% static 'css/style.css' %}">
-    <script src="{% static 'js/jquery-3.7.1.min.js' %}"></script>
-    <title>new</title>
-</head>
-<body>
-    <h1>create new content</h1>
+{% extends "base.html" %}
+{% block title %}생성{% endblock %}
+{% block header %}create new content{% endblock %}
+
+{% block body %}    
     <form method="post">
         {% csrf_token %}
         <p>
@@ -20,5 +13,4 @@
         </p>
         <button type="submit">등록</button>
     </form>
-</body>
-</html>
+{% endblock %}
