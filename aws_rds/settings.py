@@ -72,15 +72,15 @@ WSGI_APPLICATION = 'aws_rds.wsgi.application'
 
 # Database
 # https://docs.djangoproject.com/en/5.2/ref/settings/#databases
-
+import os
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'aws_rds',
-        'USER': 'admin',
-        'PASSWORD': 'admin1234',
-        'HOST': 'database-1.c9s8eoak628a.eu-north-1.rds.amazonaws.com',
-        'PORT': '3306'
+        'NAME': os.environ.get('NAME'),
+        'USER': os.environ.get('USER'),
+        'PASSWORD': os.environ.get('PASSWORD'),
+        'HOST': os.environ.get('HOST'),
+        'PORT': os.environ.get('PORT')
     }
 }
 
